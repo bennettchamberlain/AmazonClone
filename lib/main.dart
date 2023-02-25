@@ -1,3 +1,5 @@
+import 'package:amazon_clone/screens/signin_screen.dart';
+import 'package:amazon_clone/utils/color_themes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,9 +11,13 @@ class AmazonClone extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        title: "Amazon Clone",
-        debugShowCheckedModeBanner: false,
-        home: Text("himom"));
+    return MaterialApp(
+      title: "Amazon Clone",
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.light().copyWith(
+        scaffoldBackgroundColor: backgroundColor,
+      ),
+      home: SignInScreen(),
+    );
   }
 }
