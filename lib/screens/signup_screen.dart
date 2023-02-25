@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
 import '../utils/utils.dart';
-
-// import '../widgets/custom_main_button.dart';
-// import '../widgets/text_field_widget.dart';
+import '../widgets/custom_main_button.dart';
+import '../widgets/text_field_widget.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
