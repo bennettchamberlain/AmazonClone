@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "106480571860",
+    "project_id": "commerce-clone-85ee7",
+    "storage_bucket": "commerce-clone-85ee7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106480571860:android:137b9d24c5656f97f47241",
+        "android_client_info": {
+          "package_name": "bennettchamberlain.app.amazon_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106480571860-utc00i2qe9219cd3suac1ehjpemkabc2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRJUZ3tGkcVVokb7pBvzz-Le80EV16QjU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106480571860-utc00i2qe9219cd3suac1ehjpemkabc2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
