@@ -1,7 +1,7 @@
 import 'package:amazon_clone/utils/constants.dart';
-import 'package:amazon_clone/widget/account_screen_appbar.dart';
-import 'package:amazon_clone/widget/custom_main_button.dart';
-import 'package:amazon_clone/widget/product_showcase_listview_widget.dart';
+import 'package:amazon_clone/widgets/account_screen_appbar.dart';
+import 'package:amazon_clone/widgets/custom_main_button.dart';
+import 'package:amazon_clone/widgets/product_showcase_listview_widget.dart';
 import 'package:flutter/material.dart';
 import '../utils/color_themes.dart';
 import '../utils/utils.dart';

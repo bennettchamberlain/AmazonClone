@@ -24,7 +24,8 @@ class PriceWidget extends StatelessWidget {
         ),
         Text(
           price.toInt().toString(),
-          style: const TextStyle(
+          style: TextStyle(
+            color: color,
             fontSize: 25,
             fontWeight: FontWeight.w800,
           ),

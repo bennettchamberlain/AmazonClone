@@ -1,4 +1,5 @@
 import 'package:amazon_clone/layout/screen_layout.dart';
+import 'package:amazon_clone/screens/product_screen.dart';
 import 'package:amazon_clone/screens/signin_screen.dart';
 import 'package:amazon_clone/utils/color_themes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -7,6 +8,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'firebase_options.dart';
+import 'models/product_model.dart';
+import 'screens/results_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,7 +41,19 @@ class AmazonClone extends StatelessWidget {
               );
             } else if (user.hasData) {
               //FirebaseAuth.instance.signOut();
-              return const ScreenLayout();
+              //return const ScreenLayout();
+              return ProductScreen(
+                  product: ProductModel(
+                      url:
+                          'https://m.media-amazon.com/images/I/11BIyKooluL._SX90_SY90_.png',
+                      productName: "Rick Astley",
+                      price: 9999999,
+                      discount: 0,
+                      uid: "salkjdhfwr",
+                      sellerName: "bennett",
+                      sellerUid: "adshjfgka",
+                      rating: 1,
+                      numberOfRatings: 22));
             } else {
               return const SignInScreen();
             }

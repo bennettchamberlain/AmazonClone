@@ -70,13 +70,13 @@ class _SignInScreenState extends State<SignInScreen> {
                           ),
                           TextFieldWidget(
                             title: 'Email',
-                            textController: emailController,
+                            controller: emailController,
                             obscureText: false,
                             hintText: "Enter Your Email",
                           ),
                           TextFieldWidget(
                             title: 'Password',
-                            textController: passwordController,
+                            controller: passwordController,
                             obscureText: true,
                             hintText: "Enter Your Password",
                           ),
@@ -98,7 +98,8 @@ class _SignInScreenState extends State<SignInScreen> {
                                   isLoading = false;
                                 });
                                 if (output == "Success") {
-                                  //do something
+                                  //authenticationMethods.signInUser();
+
                                   log(output);
                                 } else {
                                   Utils().showSnackBar(

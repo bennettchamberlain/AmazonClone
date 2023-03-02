@@ -4,6 +4,8 @@ import 'package:amazon_clone/utils/constants.dart';
 import 'package:amazon_clone/utils/utils.dart';
 import 'package:flutter/material.dart';
 
+import '../screens/results_screen.dart';
+
 class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
   final bool isReadOnly;
   final bool hasBackButton;
@@ -56,12 +58,22 @@ class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
                 ],
               ),
               child: TextField(
+                onSubmitted: (String query) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: ((context) => ResultsScreen(query: query)),
+                    ),
+                  );
+                },
                 onTap: () {
                   if (isReadOnly) {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SearchScreen()));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SearchScreen(),
+                      ),
+                    );
                   }
                 },
                 readOnly: isReadOnly,

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../screens/account_screen.dart';
 import '../screens/cart_screen.dart';
-import '../widget/simple_product_widget.dart';
+import '../screens/more_screen.dart';
+import '../widgets/simple_product_widget.dart';
 
 const double kAppBarHeight = 80;
 
@@ -26,7 +27,7 @@ const List<Widget> screens = [
   HomeScreen(),
   AccountScreen(),
   CartScreen(),
-  Center(child: Text("more")),
+  MoreScreen(),
 ];
 
 List<Widget> testChildren = const [
@@ -89,3 +90,11 @@ const List<String> adItemNames = [
 //Dont even attemp to scroll to the end of this manually lmao
 const String amazonLogo =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png";
+
+List<String> keysOfRating = [
+  'Very Bad',
+  'Poor',
+  'Average',
+  'Good',
+  'Excellent'
+];
