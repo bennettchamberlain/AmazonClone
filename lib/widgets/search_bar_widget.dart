@@ -21,7 +21,7 @@ class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
 
   OutlineInputBorder border = OutlineInputBorder(
       borderRadius: BorderRadius.circular(7),
-      borderSide: BorderSide(color: Colors.grey, width: 1));
+      borderSide: const BorderSide(color: Colors.grey, width: 1));
   @override
   Widget build(BuildContext context) {
     Size screenSize = Utils().getScreenSize();
@@ -38,7 +38,7 @@ class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
         children: [
           hasBackButton
               ? IconButton(
-                  icon: Icon(Icons.arrow_back),
+                  icon: const Icon(Icons.arrow_back),
                   onPressed: () {
                     Navigator.pop(context);
                   },
@@ -88,7 +88,7 @@ class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
             ),
           ),
           IconButton(
-            icon: Icon(Icons.mic_none_outlined),
+            icon: const Icon(Icons.mic_none_outlined),
             onPressed: () {},
           )
         ],

@@ -1,3 +1,4 @@
+import 'package:amazon_clone/screens/searchScreen.dart';
 import 'package:amazon_clone/utils/color_themes.dart';
 import 'package:amazon_clone/utils/constants.dart';
 import 'package:amazon_clone/utils/utils.dart';
@@ -35,11 +36,18 @@ class AccountScreenAppBar extends StatelessWidget with PreferredSizeWidget {
             children: [
               IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.notifications_outlined),
+                  icon: const Icon(Icons.notifications_outlined),
                   color: Colors.black),
               IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.search_outlined),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => SearchScreen()),
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.search_outlined),
                   color: Colors.black),
             ],
           )

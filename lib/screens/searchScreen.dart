@@ -7,7 +7,7 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: SearchBarWidget(isReadOnly: true, hasBackButton: true),
-        body: Placeholder());
+        appBar: SearchBarWidget(isReadOnly: false, hasBackButton: true),
+        body: const Placeholder(color: Colors.transparent));
   }
 }

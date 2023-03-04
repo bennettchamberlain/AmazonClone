@@ -11,29 +11,43 @@ class ReviewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screenSize = Utils().getScreenSize();
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          review.senderName,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 15.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            review.senderName,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        SizedBox(
-          width: screenSize.width / 4,
-          child: FittedBox(
-            child: RatingStarWidget(rating: review.rating),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 6.0),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 10.0),
+                  child: SizedBox(
+                    width: screenSize.width / 4,
+                    child: FittedBox(
+                      child: RatingStarWidget(rating: review.rating),
+                    ),
+                  ),
+                ),
+                Text(keysOfRating[review.rating - 1],
+                    style: const TextStyle(fontWeight: FontWeight.bold)),
+              ],
+            ),
           ),
-        ),
-        Text(keysOfRating[review.rating - 1]),
-        Text(
-          review.description,
-          maxLines: 3,
-          overflow: TextOverflow.ellipsis,
-        )
-      ],
+          Text(
+            review.description,
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
+          )
+        ],
+      ),
     );
   }
 }

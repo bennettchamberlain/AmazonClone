@@ -1,5 +1,7 @@
+import 'package:amazon_clone/providers/user_details_provider.dart';
 import 'package:amazon_clone/utils/color_themes.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../utils/constants.dart';
 
@@ -29,6 +31,7 @@ class _ScreenLayoutState extends State<ScreenLayout> {
 
   @override
   Widget build(BuildContext context) {
+    Provider.of<UserDetailsProvider>(context).getData();
     return DefaultTabController(
       length: 4,
       child: SafeArea(
@@ -45,7 +48,7 @@ class _ScreenLayoutState extends State<ScreenLayout> {
             ),
             child: TabBar(
                 indicatorSize: TabBarIndicatorSize.label,
-                indicator: BoxDecoration(
+                indicator: const BoxDecoration(
                   border: Border(
                     top: BorderSide(color: activeCyanColor, width: 4),
                   ),

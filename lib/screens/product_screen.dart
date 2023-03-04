@@ -1,19 +1,22 @@
+import 'package:amazon_clone/resources/cloud_firestore_methods.dart';
 import 'package:amazon_clone/utils/constants.dart';
 import 'package:amazon_clone/widgets/custom_main_button.dart';
 import 'package:amazon_clone/widgets/custom_simple_rounded_button.dart';
 import 'package:amazon_clone/widgets/price_widget.dart';
+import 'package:amazon_clone/widgets/review_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:amazon_clone/models/user_details_model.dart';
 import 'package:amazon_clone/utils/color_themes.dart';
 import 'package:amazon_clone/widgets/rating_star_widget.dart';
 import 'package:amazon_clone/widgets/search_bar_widget.dart';
 import 'package:amazon_clone/widgets/user_details_bar.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:provider/provider.dart';
 
 import '../models/product_model.dart';
+import '../models/review_model.dart';
+import '../providers/user_details_provider.dart';
 import '../utils/utils.dart';
+import '../widgets/review_dialog.dart';
 
 class ProductScreen extends StatefulWidget {
   final ProductModel product;
@@ -61,7 +64,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       padding:
                                           const EdgeInsets.only(bottom: 5.0),
                                       child: Text(widget.product.sellerName,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: activeCyanColor,
                                               fontSize: 16)),
                                     ),
@@ -86,35 +89,84 @@ class _ProductScreenState extends State<ProductScreen> {
                               color: Colors.black, price: widget.product.price),
                           spaceThing,
                           CustomMainButton(
-                              child: Text("Buy Now",
-                                  style: TextStyle(color: Colors.black)),
                               color: Colors.orange,
                               isLoading: false,
-                              onPressed: () {}),
+                              onPressed: () async {
+                                CloudFirestoreMethods().addProductToOrders(
+                                    model: widget.product,
+                                    userDetails:
+                                        Provider.of<UserDetailsProvider>(
+                                                context,
+                                                listen: false)
+                                            .userDetails);
+                                Utils().showSnackBar(
+                                    context: context,
+                                    content: "Added to orders");
+                              },
+                              child: const Text("Buy Now",
+                                  style: TextStyle(color: Colors.black))),
                           spaceThing,
                           CustomMainButton(
-                              child: Text("Add to Cart",
-                                  style: TextStyle(color: Colors.black)),
                               color: yellowColor,
                               isLoading: false,
-                              onPressed: () {}),
+                              onPressed: () async {
+                                await CloudFirestoreMethods().addProductToCart(
+                                    productModel: widget.product);
+                                Utils().showSnackBar(
+                                    context: context,
+                                    content: "Added to cart.");
+                              },
+                              child: const Text("Add to Cart",
+                                  style: TextStyle(color: Colors.black))),
                           spaceThing,
                           CustomSimpleRoundedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              showDialog(
+                                  context: (context),
+                                  builder: (context) {
+                                    return ReviewDialog(
+                                      productUid: widget.product.uid,
+                                    );
+                                  });
+                            },
                             text: "Add a review for this product",
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(height: screenSize.height)
+                    SizedBox(
+                      height: screenSize.height,
+                      child: StreamBuilder(
+                        stream: FirebaseFirestore.instance
+                            .collection("products")
+                            .doc(widget.product.uid)
+                            .collection("reviews")
+                            .snapshots(),
+                        builder: (context,
+                            AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
+                                snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return Container();
+                          } else {
+                            return ListView.builder(
+                                itemCount: snapshot.data!.docs.length,
+                                itemBuilder: (context, index) {
+                                  ReviewModel model =
+                                      ReviewModel.getModelFromJson(
+                                          json: snapshot.data!.docs[index]
+                                              .data());
+                                  return ReviewWidget(review: model);
+                                });
+                          }
+                        },
+                      ),
+                    )
                   ],
                 ),
               ),
             ),
-            UserDetailsBar(
-                userDetails:
-                    UserDetailsModel(name: 'bennett', address: '377 central'),
-                offset: 0),
+            const UserDetailsBar(offset: 0),
           ],
         ),
       ),

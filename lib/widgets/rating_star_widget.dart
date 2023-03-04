@@ -10,8 +10,8 @@ class RatingStarWidget extends StatelessWidget {
     for (int i = 0; i < 5; i++) {
       children.add(
         i < rating
-            ? Icon(Icons.star, color: Colors.orange)
-            : Icon(Icons.star_outline, color: Colors.orange),
+            ? const Icon(Icons.star, color: Colors.orange)
+            : const Icon(Icons.star_outline, color: Colors.orange),
       );
     }
     return Row(

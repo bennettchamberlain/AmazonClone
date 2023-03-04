@@ -1,6 +1,7 @@
-
 import 'package:amazon_clone/utils/constants.dart';
 import 'package:flutter/material.dart';
+
+import '../screens/results_screen.dart';
 
 class CategoriesHorizontalListView extends StatelessWidget {
   const CategoriesHorizontalListView({super.key});
@@ -16,9 +17,18 @@ class CategoriesHorizontalListView extends StatelessWidget {
         itemCount: categoriesList.length,
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ResultsScreen(query: categoriesList[index]);
+                  },
+                ),
+              );
+            },
             child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
               child: Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,

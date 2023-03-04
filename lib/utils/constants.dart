@@ -1,6 +1,7 @@
 import 'package:amazon_clone/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../models/product_model.dart';
 import '../screens/account_screen.dart';
 import '../screens/cart_screen.dart';
 import '../screens/more_screen.dart';
@@ -30,27 +31,67 @@ const List<Widget> screens = [
   MoreScreen(),
 ];
 
-List<Widget> testChildren = const [
+List<Widget> testChildren = [
   SimpleProductWidget(
-      url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
+    productModel: ProductModel(
+        url: 'https://m.media-amazon.com/images/I/11BIyKooluL._SX90_SY90_.png',
+        productName: "Rick Astley",
+        price: 9999999,
+        discount: 0,
+        uid: "salkjdhfwr",
+        sellerName: "bennett",
+        sellerUid: "adshjfgka",
+        rating: 1,
+        numberOfRatings: 22),
+  ),
   SimpleProductWidget(
-      url: "https://m.media-amazon.com/images/I/51QISbJp5-L._SX3000_.jpg"),
+    productModel: ProductModel(
+        url: 'https://m.media-amazon.com/images/I/11BIyKooluL._SX90_SY90_.png',
+        productName: "Rick Astley",
+        price: 9999999,
+        discount: 0,
+        uid: "salkjdhfwr",
+        sellerName: "bennett",
+        sellerUid: "adshjfgka",
+        rating: 2,
+        numberOfRatings: 22),
+  ),
   SimpleProductWidget(
-      url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
+    productModel: ProductModel(
+        url: 'https://m.media-amazon.com/images/I/11BIyKooluL._SX90_SY90_.png',
+        productName: "Rick Astley",
+        price: 9999999,
+        discount: 0,
+        uid: "salkjdhfwr",
+        sellerName: "chamberlan",
+        sellerUid: "adshjfgka",
+        rating: 3,
+        numberOfRatings: 22),
+  ),
   SimpleProductWidget(
-      url: "https://m.media-amazon.com/images/I/51QISbJp5-L._SX3000_.jpg"),
+    productModel: ProductModel(
+        url: 'https://m.media-amazon.com/images/I/11BIyKooluL._SX90_SY90_.png',
+        productName: "Rick Astley",
+        price: 9999999,
+        discount: 0,
+        uid: "salkjdhfwr",
+        sellerName: "trash",
+        sellerUid: "adshjfgka",
+        rating: 4,
+        numberOfRatings: 22),
+  ),
   SimpleProductWidget(
-      url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-  SimpleProductWidget(
-      url: "https://m.media-amazon.com/images/I/51QISbJp5-L._SX3000_.jpg"),
-  SimpleProductWidget(
-      url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-  SimpleProductWidget(
-      url: "https://m.media-amazon.com/images/I/51QISbJp5-L._SX3000_.jpg"),
-  SimpleProductWidget(
-      url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-  SimpleProductWidget(
-      url: "https://m.media-amazon.com/images/I/51QISbJp5-L._SX3000_.jpg"),
+    productModel: ProductModel(
+        url: 'https://m.media-amazon.com/images/I/11BIyKooluL._SX90_SY90_.png',
+        productName: "Rick Astley",
+        price: 9999999,
+        discount: 0,
+        uid: "salkjdhfwr",
+        sellerName: "redd",
+        sellerUid: "adshjfgka",
+        rating: 5,
+        numberOfRatings: 22),
+  ),
 ];
 
 const List<String> categoryLogos = [
