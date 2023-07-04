@@ -4,7 +4,7 @@ import 'package:amazon_clone/utils/constants.dart';
 import 'package:amazon_clone/utils/utils.dart';
 import 'package:flutter/material.dart';
 
-class AccountScreenAppBar extends StatelessWidget with PreferredSizeWidget {
+class AccountScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   final Size preferredSize;
   AccountScreenAppBar({
